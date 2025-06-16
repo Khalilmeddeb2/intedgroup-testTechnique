@@ -1,0 +1,128 @@
+<header class="masthead">
+  <div
+    class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center"
+  >
+    <div class="card col-lg-12 col-md-8 col-sm-10 p-5">
+      <form [formGroup]="signUpForm" (ngSubmit)="singup()">
+        <h2 class="text-center">Inscription</h2>
+        <br />
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="firstname">Nom <b style="color: red">*</b></label>
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              class="form-control"
+              formControlName="firstName"
+              [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+              onkeypress="return /[a-zA-Zéèçàâ ]/.test(event.key)"
+            />
+            <div
+              *ngIf="submitted && f.firstName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.firstName.errors.required">
+                Ce champ est obligatoire.
+              </div>
+              <div *ngIf="f.firstName.errors.minlength">
+                Ce champ doit avoir minimum 3 caractères.
+              </div>
+              <div *ngIf="f.firstName.errors.maxlength">
+                Ce champ ne doit pas dépasser 25 caractères.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastname">Prénom <b style="color: red">*</b></label>
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              class="form-control"
+              formControlName="lastName"
+              [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+              onkeypress="return /[a-zA-Zéèçàâ ]/.test(event.key)"
+            />
+            <div
+              *ngIf="submitted && f.lastName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.lastName.errors.required">
+                Ce champ est obligatoire.
+              </div>
+              <div *ngIf="f.lastName.errors.minlength">
+                Ce champ doit avoir minimum 3 caractères.
+              </div>
+              <div *ngIf="f.lastName.errors.maxlength">
+                Ce champ ne doit pas dépasser 25 caractères.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email <b style="color: red">*</b></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            formControlName="email"
+            autocomplete="username"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            onkeypress="return /[a-zA-Z0-9 .@]/.test(event.key)"
+          />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Ce champ est obligatoire.</div>
+            <div *ngIf="f.email.errors.email">Cet e-mail est invalide.</div>
+          </div>
+        </div>
+         <div class="form-group">
+          <label for="role">Role <b style="color: red">*</b></label>
+          <!-- <input
+            type="text"
+            id="role"
+            name="role"
+            class="form-control"
+            formControlName="role"
+            [ngClass]="{ 'is-invalid': submitted && f.role.errors }"
+            onkeypress="return /[a-zA-Z0-9 .@]/.test(event.key)"
+          /> -->
+                     <ng-select
+                    [items]="roles"
+                    bindLabel="name"
+                    bindValue="_id"
+                    formControlName="role"
+                    class="form-control"
+                    [closeOnSelect]="true"
+                    [ngClass]="{ 'is-invalid': submitted && f.role.errors }"
+                  >
+                  </ng-select>
+          <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+            <div *ngIf="f.role.errors.required">Ce champ est obligatoire.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe <b style="color: red">*</b></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+          />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">
+              Ce champ est obligatoire.
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="text-center">
+          <button type="submit" class="btn btn-connexion">S'inscrire</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</header>

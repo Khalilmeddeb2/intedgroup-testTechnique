@@ -1,0 +1,48 @@
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+  <!-- Vertical Navbar -->
+  <nav
+    class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light border-bottom border-bottom-lg-0 border-end-lg"
+    id="navbarVertical"
+    style="background-color: #0e2f40">
+    <div class="container-fluid">
+      <a class="navbar-brand py-lg-5 mb-lg-4 px-lg-12 me-1" routerLink="/admin/chantiers/suppafacs">
+        <img src="https://intedgroup.com/wp-content/uploads/2023/07/cropped-cropped-cropped-cropped-MicrosoftTeams-image-189.png" alt="Logo" height="100%" />
+      </a>
+      <div [ngClass]="navbarclass" id="sidebarCollapse">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link li-menu-left" routerLink="/accueil">
+              <i class="bi bi-box-arrow-right"></i>
+              Accueil
+            </a>
+          </li>
+
+          <li *ngIf="roleUserCurent == 'Admin' " class="nav-item">
+            <a class="nav-link li-menu-left" routerLink="roles">
+              <i class="bi bi-box-arrow-right"></i>
+              Rôles
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link li-menu-left" routerLink="articles">
+              <i class="bi bi-box-arrow-right"></i>
+              Articles
+            </a>
+          </li>
+          <li class="nav-item mt-8">
+            <a class="nav-link li-menu-left text-danger" (click)="logout()">
+              <i class="bi bi-box-arrow-right"></i>
+              Déconnexion
+            </a>
+         </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="flex-grow-1 overflow-y-auto">
+    <router-outlet></router-outlet>
+  </div>
+</div>

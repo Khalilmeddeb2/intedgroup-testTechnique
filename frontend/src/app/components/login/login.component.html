@@ -1,0 +1,54 @@
+<body>
+  <div class="login-card">
+    <div class="brand">
+      <div class="brand-logo"></div>
+      <h1>Bienvenue à nouveau</h1>
+      <p>Entrez vos identifiants pour accéder à votre compte</p>
+    </div>
+
+    <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          placeholder="Email"
+          type="email"
+          formControlName="email"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+        />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">
+            Veuillez renseigner ce champ.
+          </div>
+          <div *ngIf="f.email.errors.email">
+            Merci de saisir une adresse email valide.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          placeholder="Mot de passe"
+          type="password"
+          formControlName="password"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+        />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">
+            Veuillez renseigner ce champ.
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="login-btn" id="loginButton">
+        Connexion
+      </button>
+    </form>
+    <div class="signup-link">
+      <p>
+        Vous n'avez pas de compte ? <a routerLink="/inscription">S'inscrire</a>
+      </p>
+    </div>
+  </div>
+</body>

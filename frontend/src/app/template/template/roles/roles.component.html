@@ -1,0 +1,98 @@
+<main class="py-6 pt-10 bg-surface-secondary">
+  <div class="container-fluid">
+    <div class="row mb-10">
+      <div class="col-12 d-flex justify-content-between align-items-center">
+        <h2 class="text-gray-800 fw-bold mb-0">Liste des rôles</h2>
+        <button class="btn btn-primary" (click)="addRole()">
+          <i class="bi bi-plus-circle me-1"></i> Ajouter un rôle
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle text-center">
+            <thead style="background-color: #0e2f40; color: white;">
+              <tr>
+                <th>Nom du rôle</th>
+                <th>Permissions</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let role of roles; let i = index" [ngClass]="{ 'bg-white': i % 2 === 0, 'bg-light': i % 2 !== 0 }">
+                <td>{{ role.name }}</td>
+                <td>
+                  <span *ngFor="let perm of role.permissions" class="badge bg-primary me-1 mb-1">
+                    {{ perm }}
+                  </span>
+                </td>
+                <td>
+                  <button class="btn btn-sm" (click)="editRole(role)">
+                    <i class="bi bi-pencil-fill i-action"></i>
+                  </button>
+                  <button class="btn btn-sm" (click)="getRoleToDeleted(role)"
+                   data-toggle="modal"
+                    data-target="#exampleModaldelete">
+                    <i class="bi bi-trash-fill i-action"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="roles.length === 0">
+                <td colspan="4" class="text-center text-muted py-3">Aucun rôle trouvé.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<!-- modal delete role -->
+<div class="modal fade" id="exampleModaldelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Confirmation de suppression
+        </h5> 
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          Êtes-vous sûr(e) de vouloir supprimer ce rôle ?
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary me-2"
+          data-dismiss="modal"
+        >
+          Annuler
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="deleteRole()"
+        >
+          Confirmer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

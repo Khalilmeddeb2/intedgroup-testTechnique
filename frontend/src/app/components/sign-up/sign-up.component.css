@@ -1,0 +1,12 @@
+.card {
+    top: 186px !important;
+    border: 3px solid #0e2f40 !important;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #0e2f40;
+;
+}

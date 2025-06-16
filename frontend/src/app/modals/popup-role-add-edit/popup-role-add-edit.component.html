@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{ idRole ? 'Modifier un rôle' : 'Ajouter un rôle' }}</h5>
+  <button type="button" class="btn-close" aria-label="Close" (click)="onCancel()"></button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label for="roleName" class="form-label">Nom du rôle <span class="text-danger">*</span></label>
+        <ng-select
+            [items]="allRoles"
+            formControlName="name"
+            class="form-control input-custom"
+            [closeOnSelect]="true"
+            [class.is-invalid]="submitted && f.name.invalid"
+          >
+          </ng-select>
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">Le nom du rôle est obligatoire.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Permissions<span class="text-danger">*</span></label>
+        <ng-select
+            [items]="allPermissions"
+            formControlName="permissions"
+            class="form-control input-custom"
+            [closeOnSelect]="true"
+            multiple = true
+            [class.is-invalid]="submitted && f.permissions.invalid"
+          >
+          </ng-select>
+           <div *ngIf="submitted && f.permissions.errors" class="invalid-feedback">
+        <div *ngIf="f.permissions.errors.required">Les permissions sont obligatoires.</div>
+      </div>
+    </div>
+
+    <div class="text-end">
+      <button type="button" class="btn btn-secondary me-2" (click)="onCancel()">Annuler</button>
+      <button type="submit" class="btn btn-primary">Sauvegarder</button>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,75 @@
+.post-container {
+  display: flex;
+   flex-direction: column;
+   background: #d6d6d6;
+   min-height: 100vh; 
+ }
+ .container {
+   flex-grow: 1;
+}
+add-post-btn {
+  background-color: #0e309f !important;
+  border: none;
+  margin-right: 1rem !important;
+}
+
+.logout-btn {
+  border: none;
+  margin-left: 1rem;
+  color : #fff ;
+  background-color: #666;
+}
+
+.post-date {
+  font-size: 0.75rem;
+}
+
+.action-btn {
+  margin-right: 10px;
+}
+
+.card-text{
+  color: #0e309f;
+  font-style: italic ;
+  font-weight: 600
+  
+}
+
+.comment-textarea {
+  resize: none;
+}
+
+.comment-btn {
+  background: #0e309f;
+  color: #fff;
+  border: none;
+}
+
+.modal-title {
+  color: #0e309f;
+}
+
+.post-content-textarea {
+  resize: none;
+}
+
+.cancel-btn {
+  background: white;
+  color: #0e309f;
+  border: 1px solid #0e309f;
+}
+
+.publish-btn {
+  background: #0e309f;
+  color: #fff;
+  border: none;
+}
+
+.add-comment {
+  margin-top: 20px;
+}
+.like-liked {
+ color: #007bff !important; 
+}
+
+

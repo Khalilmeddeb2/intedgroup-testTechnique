@@ -1,0 +1,72 @@
+<main class="py-6 pt-10 bg-surface-secondary">
+  <div class="col-lg-12">
+    <div class="bg-white p-5 rounded shadow-sm">
+      <h3 class="mb-8 fw-bold">Modifier un article</h3>
+
+      <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+        
+        <div class="mb-4 text-center">
+            <div class="position-relative d-inline-block">
+                <label style="cursor: pointer;">
+                <input type="file" accept="image/*" (change)="onImageSelected($event)" hidden />
+                <div *ngIf="imagePreview">
+                    <img [src]="imagePreview" alt="Aperçu" class="rounded shadow-sm"
+                        style="max-width: 300px; max-height: 300px;" />
+                </div>
+                <div *ngIf="!imagePreview"
+                    class="border border-dashed rounded p-5 bg-light d-flex justify-content-center align-items-center"
+                    style="height: 200px;">
+                    <div class="text-muted">
+                    <i class="bi bi-plus-circle display-4"></i>
+                    <div class="mt-2 fw-semibold">Cliquez pour ajouter une image</div>
+                    </div>
+                </div>
+                </label>
+                <button *ngIf="imagePreview"
+                        type="button"
+                        class="btn btn-sm btn-danger ml-2"
+                        (click)="removeImage()">
+                <i class="bi bi-trash-fill"></i>
+                </button>
+         </div>
+         <div class="text-danger" *ngIf="submitted && articleForm.value.image == '' ">L'image est obligatoire.</div>
+
+      </div>
+        
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Titre de l'article</label>
+          <input type="text" class="form-control" formControlName="title" placeholder="Entrez le titre"
+            [class.is-invalid]="submitted && f.title.invalid" />
+          <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+            <div *ngIf="f.title.errors.required">Le titre est obligatoire.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Contenu</label>
+          <textarea class="form-control" rows="5" formControlName="content"
+            placeholder="Rédigez le contenu de l'article" [class.is-invalid]="submitted && f.content.invalid"></textarea>
+          <div *ngIf="submitted && f.content.errors" class="invalid-feedback">
+            <div *ngIf="f.content.errors.required">Le contenu est obligatoire.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Tags</label>
+          <input type="text" class="form-control" formControlName="tags" placeholder="Séparez les tags par des virgules"
+            [class.is-invalid]="submitted && f.tags.invalid" />
+          <div *ngIf="submitted && f.tags.errors" class="invalid-feedback">
+            <div *ngIf="f.tags.errors.required">Les tags sont obligatoires.</div>
+          </div>
+        </div>
+
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary">
+            Modifier
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+

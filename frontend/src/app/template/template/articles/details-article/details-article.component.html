@@ -1,0 +1,23 @@
+<main class="py-6 pt-10 bg-surface-secondary">
+  <div class="col-lg-12">
+    <div class="bg-white p-5 rounded shadow-sm">
+      <h3 class="mb-4 fw-bold">Détails de l'article</h3>
+        <div *ngIf="article">
+        <div class="mb-4 text-center">
+          <img *ngIf="imageUrl" [src]="imageUrl" alt="Image de l'article" class="rounded shadow-sm"
+            style="max-width: 400px; max-height: 400px;" />
+        </div>
+
+        <h4>{{ article.title }}</h4>
+        <p><strong>Contenu :</strong></p>
+        <p>{{ article.content }}</p>
+
+        <p><strong>Tags :</strong> {{ article.tags }}</p>
+      </div>
+      <button class="btn btn-secondary mt-4" (click)="goBack()">
+        ← Retour à la liste
+      </button>
+    </div>
+  </div>
+</main>
+

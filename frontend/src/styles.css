@@ -1,0 +1,94 @@
+/* Imports externes */
+@import url("https://unpkg.com/@webpixels/css@1.1.5/dist/index.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+
+/* Bouton principal */
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(to bottom, #3C4D5D, #29435C);
+}
+
+/* Navbar verticale et liens */
+.nav-link {
+  color: white !important;
+  font-family: 'Roboto', sans-serif;
+}
+
+::ng-deep .navbar-light .navbar-nav .nav-link:focus {
+  color: #62B9CB !important;
+  background-color: #0e2f40 !important;
+}
+
+::ng-deep .navbar-light .navbar-nav .nav-link:hover {
+  color: #62B9CB !important;
+}
+
+.navbar-vertical.navbar-light .navbar-nav > .nav-item > .nav-link:hover {
+  background-color: #0e2f40 !important;
+}
+
+/* Logo navbar */
+.navbar-expand-lg .navbar-brand img {
+  height: 93px !important;
+}
+
+/* Icônes */
+i {
+  color: #fff !important;
+}
+
+/* Navbar padding */
+.navbar-expand-sm .navbar-nav .nav-link {
+  padding-right: 1.25rem;
+  padding-left: 5.25rem !important;
+}
+
+/* Autres styles */
+hr {
+  color: #0e2f40 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+  .h-screen {
+    height: auto !important;
+    margin-bottom: 20px;
+  }
+}
+.col-md-4 {
+  flex: 1 1 0%;
+}
+.bg-light {
+  background-color: #ddeaf1 !important;
+}
+.bg-primary {
+background-color:#005d8d !important;
+}
+.i-action {
+    color: #0e2f40 !important;
+}
+.table thead th {
+    color: #ffffff;
+}
+/* modal */
+.btn-close:focus {
+    box-shadow:none !important;
+}
+/* ng-select */
+.form-control.ng-select {
+    padding: 0;
+}
+::ng-deep .ng-select .ng-select-container
+{
+    border: none !important;
+}
+::ng-deep  .form-group .ng-select-focused
+{
+    border-color:#5c60f5;box-shadow: 0 0 0 0.25rem rgb(92 96 245 / 25%);
+}
+.margin-right-50{
+    margin-right: 50px;
+}
+.ng-select:not(.open) {
+    height: auto; 
+}
