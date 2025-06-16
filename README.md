@@ -67,9 +67,9 @@ backend/
 │ ├── articles.routes.js
 │ └── comments.routes.js
 ├── middlewares/
-│ ├── authMiddleware.js
-│ ├── roleMiddleware.js
-│ └── rateLimiter.js
+│ ├── articlePermissions.js
+│ ├── auth.js
+│ └── multerStorage.js
 └── app.js
 
 
@@ -104,7 +104,7 @@ backend/
 
 ## 💻 Partie Front-End
 
-### 🔧 Stack : Angular 17
+### 🔧 Stack : Angular 9
 
 ### 📁 Structure
 
@@ -153,9 +153,9 @@ frontend/
 ## 📦 Installation & Lancement
 
 ### 🔹 Prérequis
-- Node.js (v18+ recommandée)
-- MongoDB (local ou cloud)
-- Angular CLI (v17+)
+- Node.js (v14)
+- MongoDB (local)
+- Angular CLI (v9)
 
 ### 🔧 Backend && front 
 
